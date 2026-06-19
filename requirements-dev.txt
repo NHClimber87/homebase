@@ -1,0 +1,7 @@
+# Dev/test/build dependencies (NOT shipped in the .exe).
+-r requirements.txt
+pytest>=8.0
+pytest-timeout>=2.2
+freezegun>=1.5
+pyinstaller>=6.0 ; platform_system == "Windows"
+tzdata>=2024.1   # also pull on the build host so the bundle can collect it

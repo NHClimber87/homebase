@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>HomeBase</title>
+  <!-- All assets are served from localhost (no CDN). The server also sends a strict CSP. -->
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>HomeBase</h1>
+    <span class="health" id="health"><span class="dot"></span>starting…</span>
+    <span class="spacer"></span>
+    <button id="refresh" type="button">Refresh</button>
+    <button id="open-settings" type="button">Settings</button>
+  </header>
+
+  <p class="banner" id="banner" hidden></p>
+
+  <main id="cards" aria-live="polite">
+    <!-- cards injected by app.js (DOM-built, never innerHTML of feed data) -->
+  </main>
+
+  <dialog id="settings">
+    <div class="dlg-head"><h2>Settings</h2></div>
+    <div class="dlg-body" id="settings-body"></div>
+    <div class="dlg-foot">
+      <button id="settings-reset" type="button">Reset to defaults</button>
+      <button id="settings-cancel" type="button">Cancel</button>
+      <button id="settings-save" type="button">Save</button>
+    </div>
+  </dialog>
+
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

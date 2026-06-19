@@ -1,0 +1,128 @@
+/* HomeBase styles. Served from localhost only (no CDN, no web fonts) so the strict CSP
+   (style-src 'self', font-src 'self') holds and nothing leaks to a third party. */
+:root {
+  --bg: #0f1115;
+  --panel: #1a1e26;
+  --panel-2: #222732;
+  --ink: #e7ebf0;
+  --muted: #9aa4b2;
+  --line: #2c3340;
+  --accent: #4ea1ff;
+  --good: #57c785;
+  --warn: #e0b341;
+  --bad: #e0614d;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.45;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+header h1 { font-size: 18px; margin: 0; letter-spacing: .3px; }
+header .spacer { flex: 1; }
+.health { color: var(--muted); font-size: 13px; }
+.health .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--good); margin-right: 6px; }
+button {
+  background: var(--panel-2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+button:hover { border-color: var(--accent); }
+button:disabled { opacity: .5; cursor: default; }
+
+.banner {
+  margin: 0;
+  padding: 10px 20px;
+  background: #3a2e12;
+  color: var(--warn);
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 120px;
+}
+.card h2 { font-size: 15px; margin: 0 0 4px; display: flex; align-items: center; gap: 8px; }
+.card .meta { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+.pill { font-size: 11px; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.pill.fresh { color: var(--good); border-color: var(--good); }
+.pill.stale { color: var(--warn); border-color: var(--warn); }
+.pill.dead, .pill.no-data-yet { color: var(--bad); border-color: var(--bad); }
+.pill.loading { color: var(--muted); }
+.badge { font-size: 10px; padding: 1px 6px; border-radius: 4px; background: var(--panel-2); color: var(--muted); border: 1px solid var(--line); }
+
+.game { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.game:last-child { border-bottom: none; }
+.game .when { color: var(--muted); font-size: 13px; }
+.game .score { font-weight: 600; }
+.label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
+
+.row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.row:last-child { border-bottom: none; }
+.row .sym { font-weight: 600; }
+.row .px { font-variant-numeric: tabular-nums; }
+.up { color: var(--good); }
+.down { color: var(--bad); }
+.flat { color: var(--muted); }
+.qt { font-size: 11px; color: var(--muted); margin-left: 6px; }
+
+.news { padding: 6px 0; border-bottom: 1px solid var(--line); }
+.news:last-child { border-bottom: none; }
+.news a { color: var(--ink); text-decoration: none; }
+.news a:hover { color: var(--accent); text-decoration: underline; }
+.news .src { color: var(--muted); font-size: 12px; }
+.note { color: var(--muted); font-size: 12px; font-style: italic; padding: 4px 0; }
+.err { color: var(--bad); font-size: 13px; }
+
+dialog {
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  max-width: 620px;
+  width: 92%;
+  padding: 0;
+}
+dialog::backdrop { background: rgba(0,0,0,.6); }
+.dlg-head { display: flex; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.dlg-head h2 { margin: 0; font-size: 16px; flex: 1; }
+.dlg-body { padding: 18px; max-height: 70vh; overflow: auto; }
+.dlg-foot { padding: 14px 18px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: flex-end; }
+.setting { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.setting label { display: flex; align-items: center; gap: 8px; }
+.setting .desc { color: var(--muted); font-size: 12px; margin-top: 4px; }
+input[type=text] {
+  background: var(--panel-2); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 6px; padding: 6px 8px; font-size: 14px;
+}
+.privacy-note { color: var(--muted); font-size: 12px; margin-top: 14px; line-height: 1.5; }

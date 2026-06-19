@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+build-venv/
+venv/
+.venv/
+
+# PyInstaller build artifacts (the exe ships as a GitHub Release asset, not in the tree)
+packaging/build/
+packaging/dist/
+packaging/dist-bundle/
+packaging/*.exe
+*.exe
+
+# Local app data / runtime config (never commit the interest graph)
+config.json
+config.json.*

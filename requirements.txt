@@ -1,0 +1,9 @@
+# HomeBase runtime dependencies.
+#
+# The app itself is STDLIB-ONLY (urllib + ssl + http.server) — a deliberate choice to keep
+# the Windows .exe small and the supply chain tiny for a privacy appliance.
+#
+# The single runtime dependency is the IANA timezone database, and ONLY on Windows
+# (Linux/macOS ship a system tz database that Python's zoneinfo reads directly).
+# It is required for DST-correct America/New_York times (AC-CORR-1).
+tzdata>=2024.1 ; platform_system == "Windows"

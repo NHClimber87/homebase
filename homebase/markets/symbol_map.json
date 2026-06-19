@@ -1,0 +1,9 @@
+{
+  "_comment": "Canonical symbol id -> per-source native symbol. 'The Nasdaq' = Nasdaq Composite (Stooq ^NDQ / Yahoo ^IXIC), NOT NASDAQ-100. Equities resolve via equity_rule (Stooq wants a .us suffix; Yahoo wants the bare uppercase ticker).",
+  "indices": {
+    "DJI": {"stooq": "^dji", "yahoo": "^DJI", "display": "Dow"},
+    "SPX": {"stooq": "^spx", "yahoo": "^GSPC", "display": "S&P 500"},
+    "NDQ": {"stooq": "^ndq", "yahoo": "^IXIC", "display": "Nasdaq"}
+  },
+  "equity_rule": {"stooq_suffix": ".us", "yahoo_case": "upper"}
+}
